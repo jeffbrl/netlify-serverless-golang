@@ -8,9 +8,11 @@ import (
 )
 
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	name := request.QueryStringParameters["name"]
-	response := fmt.Sprintf("Hello %s!", name)
+	//	name := request.QueryStringParameters["name"]
+	//	response := fmt.Sprintf("Hello %s!", name)
 
+	context := request.RequestContext
+	response := fmt.Sprintf("%v", context)
 	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Headers:    map[string]string{"Content-Type": "text/html; charset=UTF-8"},
