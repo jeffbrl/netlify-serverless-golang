@@ -1,0 +1,13 @@
+[build]
+  base = "/"
+  command = "make build"
+  publish = "/public"
+  functions = "/functions"
+
+[build.environment]
+  GO_VERSION = "1.14.5"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/gateway/:splat"
+  status = 200
