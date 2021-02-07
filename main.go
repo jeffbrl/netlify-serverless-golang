@@ -11,7 +11,7 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	name := request.QueryStringParameters["name"]
 	response := fmt.Sprintf("Hello %s!", name)
 
-	return &events.APIGatewayProxyResponse{
+	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Headers:    map[string]string{"Content-Type": "text/html; charset=UTF-8"},
 		Body:       response,
